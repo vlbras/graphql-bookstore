@@ -2,13 +2,19 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Author {
+  id: ID!
+  name: String!
+  books: [Book!]!
+}
+
 """Book model"""
 type Book {
   """A unique identifier"""
   id: ID!
   title: String!
   price: Float!
-  author: String!
+  author: Author!
 }
 
 type Query {
