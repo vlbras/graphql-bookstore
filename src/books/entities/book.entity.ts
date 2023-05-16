@@ -1,5 +1,5 @@
 import { Field, ID, ObjectType } from "@nestjs/graphql"
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
 import { Author } from "./author.entity"
 
 @Entity('books')
@@ -15,7 +15,6 @@ export class Book {
     @Column()
     price: number
 
-  
     @ManyToOne(() => Author, author => author.books,
         { cascade: true })
     author?: Author
