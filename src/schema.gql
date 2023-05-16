@@ -13,11 +13,13 @@ type Book {
 
 type Query {
   books: [Book!]!
-  book(id: ID!): Book
+  book(id: ID!): Book!
 }
 
 type Mutation {
-  createBook(createBookInput: CreateBookInput!): Book
+  createBook(createBookInput: CreateBookInput!): Book!
+  updateBook(id: Float!, updateBookInput: UpdateBookInput!): Book!
+  removeBook(id: Float!): Book!
 }
 
 """Create book input object type"""
@@ -26,4 +28,11 @@ input CreateBookInput {
   title: String!
   price: Float!
   author: String!
+}
+
+input UpdateBookInput {
+  """A new book title"""
+  title: String
+  price: Float
+  author: String
 }
